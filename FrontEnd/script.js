@@ -20,7 +20,10 @@ async function fetchWeather() {
   errorBox.classList.add("hidden");
 
   try {
-    const res = await fetch(`http://localhost:3000/weather?city=${city}`);
+  const res = await fetch(
+  `https://weather-app-53ay.onrender.com/weather?city=${city}`
+);
+
 
     if (!res.ok) throw new Error("City not found");
     const data = await res.json();
