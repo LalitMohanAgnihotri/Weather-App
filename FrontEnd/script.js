@@ -1,4 +1,3 @@
-const API_KEY = "use_your_openweathermap_api_key_here";
 const cityInput = document.getElementById("cityInput");
 const searchBtn = document.getElementById("searchBtn");
 const loader = document.getElementById("loader");
@@ -21,9 +20,8 @@ async function fetchWeather() {
   errorBox.classList.add("hidden");
 
   try {
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
-    );
+    const res = await fetch(`http://localhost:3000/weather?city=${city}`);
+
     if (!res.ok) throw new Error("City not found");
     const data = await res.json();
     displayWeather(data);
@@ -40,8 +38,7 @@ function displayWeather(data) {
   document.getElementById("location").textContent =
     `${data.name}, ${data.sys.country}`;
 
-  document.getElementById("temperature").textContent =
-    `${currentTempC}°`;
+  document.getElementById("temperature").textContent = `${currentTempC}°`;
 
   document.getElementById("description").textContent =
     data.weather[0].description;
@@ -49,20 +46,16 @@ function displayWeather(data) {
   document.getElementById("icon").src =
     `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
 
-  document.getElementById("humidity").textContent =
-    `${data.main.humidity}%`;
+  document.getElementById("humidity").textContent = `${data.main.humidity}%`;
 
-  document.getElementById("wind").textContent =
-    `${data.wind.speed} m/s`;
+  document.getElementById("wind").textContent = `${data.wind.speed} m/s`;
 
   document.getElementById("feels").textContent =
     `${Math.round(data.main.feels_like)}°`;
 
-  document.getElementById("sunrise").textContent =
-    formatTime(data.sys.sunrise);
+  document.getElementById("sunrise").textContent = formatTime(data.sys.sunrise);
 
-  document.getElementById("sunset").textContent =
-    formatTime(data.sys.sunset);
+  document.getElementById("sunset").textContent = formatTime(data.sys.sunset);
 
   weatherBox.classList.remove("hidden");
 }
