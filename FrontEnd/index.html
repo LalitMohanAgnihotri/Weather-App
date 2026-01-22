@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+    <section class="glass-card floating">
+      <h1 class="title">🌦 Weather</h1>
+
+      <!-- Search -->
+      <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Search city..." />
+        <button id="searchBtn" aria-label="Search">🔍</button>
+      </div>
+
+      <!-- Loader -->
+      <div id="loader" class="shimmer hidden"></div>
+
+      <!-- Error -->
+      <div id="error" class="error hidden">
+        City not found. Try again.
+      </div>
+
+      <!-- Weather Result -->
+      <div id="weather" class="hidden">
+        <h2 id="location"></h2>
+
+        <div class="temp">
+          <span id="temperature"></span>
+          <button id="toggleUnit">°C</button>
+        </div>
+
+        <div class="condition">
+          <img id="icon" alt="weather icon" />
+          <p id="description"></p>
+        </div>
+
+        <div class="stats">
+          <div class="mini-card"><p>humidity</p>💧 <span id="humidity"></span></div>
+          <div class="mini-card"><p>wind</p>🌬 <span id="wind"></span></div>
+          <div class="mini-card"><p>temperature</p>🌡 <span id="feels"></span></div>
+        </div>
+
+        <div class="stats">
+          <div class="mini-card"><p>sunrise</p>🌅 <span id="sunrise"></span></div>
+          <div class="mini-card"><p>sunset</p>🌇 <span id="sunset"></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
