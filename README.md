@@ -46,7 +46,7 @@ OpenWeatherMap API
 
 Clone the repository
 
-git clone https://github.com/your-username/weather-app.git
+git clone https://github.com/LalitMohanAgnihotri/Weather-App.git
 
 
 Open the project folder
